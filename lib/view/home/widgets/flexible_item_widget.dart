@@ -7,6 +7,12 @@ import 'package:task/view/home/widgets/custom_container.dart';
 class FlexibleItemWidget extends StatelessWidget {
   const FlexibleItemWidget({Key? key}) : super(key: key);
 
+  TextStyle style(Color color, double size) => TextStyle(
+        fontWeight: FontWeight.w600,
+        color: color,
+        fontSize: size,
+      );
+
   @override
   Widget build(BuildContext context) {
     var w = MediaQuery.of(context).size.width;
@@ -28,7 +34,7 @@ class FlexibleItemWidget extends StatelessWidget {
                       children: [
                         Container(
                           width: 10,
-                          height: 150,
+                          height: 140,
                           decoration: const BoxDecoration(
                               color: Colors.black,
                               borderRadius: BorderRadius.only(
@@ -72,7 +78,7 @@ class FlexibleItemWidget extends StatelessWidget {
                       children: [
                         Container(
                           width: 10,
-                          height: 150,
+                          height: 140,
                           decoration: const BoxDecoration(
                               color: rightGreen,
                               borderRadius: BorderRadius.only(
@@ -88,25 +94,25 @@ class FlexibleItemWidget extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(
-                  height: 40,
+                  height: 100,
                 ),
               ],
             ),
           ),
           Positioned(
-            bottom: -28,
+            bottom: 0,
             child: Container(
-              height: 100,
+              height: 120,
               width: w,
               decoration: const BoxDecoration(
                   color: pinkWhite,
                   borderRadius: BorderRadius.only(
-                      topRight: Radius.circular(10),
-                      topLeft: Radius.circular(10))),
+                      topRight: Radius.circular(20),
+                      topLeft: Radius.circular(20))),
             ),
           ),
           Positioned(
-              bottom: 0,
+              bottom: 48,
               child: SizedBox(
                 height: 110,
                 width: w,
@@ -142,6 +148,31 @@ class FlexibleItemWidget extends StatelessWidget {
                   ],
                 ),
               )),
+          Positioned(
+              bottom: 20,
+              child: SizedBox(
+                width: w,
+                height: 25,
+                child: Row(
+                  children: [
+                    SizedBox(
+                      width: 20,
+                    ),
+                    Text(
+                      "My Debts",
+                      style: style(greyHalf, 20),
+                    ),
+                    Spacer(),
+                    Text(
+                      "See All",
+                      style: style(fadeWhite, 16),
+                    ),
+                    SizedBox(
+                      width: 20,
+                    ),
+                  ],
+                ),
+              ))
         ],
       ),
     );

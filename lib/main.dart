@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:task/view/dashboard/dash_board_screen.dart';
-
+import 'package:task/view/home/home_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home:const DashBoardScreen(),
+      home: DashBoardScreen(),
     );
   }
 }

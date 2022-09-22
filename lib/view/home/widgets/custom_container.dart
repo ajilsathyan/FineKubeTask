@@ -21,7 +21,7 @@ class CustomContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 200,
+      height: 190,
       decoration:
           BoxDecoration(color: color, borderRadius: BorderRadius.circular(16)),
       child: Padding(

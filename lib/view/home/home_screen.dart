@@ -102,59 +102,55 @@ class _HomeScreenState extends State<HomeScreen> {
                 floating: true,
                 primary: true,
                 pinned: true,
-                expandedHeight: 320,
-                collapsedHeight: 120,
+                expandedHeight: 370,
+                collapsedHeight: 170,
                 elevation: 0,
                 flexibleSpace: const FlexibleItemWidget(),
                 title: hide ? const SizedBox() : const TitleItemWidget(),
               ),
-              SliverFillRemaining(
+              SliverToBoxAdapter(
                 child: Container(
                   color: pinkWhite,
                   child: StreamBuilder<List<Data>>(
                     stream: streamController.stream,
                     builder: (context, snapshot) {
                       if (snapshot.hasData) {
-                        return Column(
-                          children: <Widget>[
-                            Expanded(
-                              child: Container(
-                                color: pinkWhite,
-                                child: ListView.builder(
-                                  itemCount: snapshot.data!.length + 1,
-                                  padding: const EdgeInsets.only(
-                                      bottom: 20, top: 0, right: 0, left: 0),
-                                  itemBuilder: (context, index) {
-                                    if (index != snapshot.data!.length) {
-                                      Data value = snapshot.data![index];
-                                      return ScaleAnimation(
-                                        child: CustomTile(
-                                          data: value,
-                                          i: index,
-                                        ),
-                                      );
-                                    } else {
-                                      return SizedBox(
-                                        width: w,
-                                        height: 80,
-                                        child: const Center(
-                                          child: Padding(
-                                            padding: EdgeInsets.all(10.0),
-                                            child: SizedBox(
-                                              width: 30,
-                                              height: 30,
-                                              child:
-                                                  CircularProgressIndicator(),
-                                            ),
-                                          ),
-                                        ),
-                                      );
-                                    }
-                                  },
-                                ),
-                              ),
-                            ),
-                          ],
+                        return Container(
+                          color: pinkWhite,
+                          width: w,
+                          child: ListView.builder(
+                            itemCount: snapshot.data!.length + 1,
+                            shrinkWrap: true,
+                            physics: const NeverScrollableScrollPhysics(),
+                            padding: const EdgeInsets.only(
+                                bottom: 20, top: 0, right: 0, left: 0),
+                            itemBuilder: (context, index) {
+                              if (index != snapshot.data!.length) {
+                                Data value = snapshot.data![index];
+                                return ScaleAnimation(
+                                  child: CustomTile(
+                                    data: value,
+                                    i: index,
+                                  ),
+                                );
+                              } else {
+                                return SizedBox(
+                                  width: w,
+                                  height: 80,
+                                  child: const Center(
+                                    child: Padding(
+                                      padding: EdgeInsets.all(10.0),
+                                      child: SizedBox(
+                                        width: 30,
+                                        height: 30,
+                                        child: CircularProgressIndicator(),
+                                      ),
+                                    ),
+                                  ),
+                                );
+                              }
+                            },
+                          ),
                         );
                       } else {
                         return const Center(
@@ -164,7 +160,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     },
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ),
