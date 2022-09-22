@@ -153,9 +153,22 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         );
                       } else {
-                        return const Center(
+                        return  Center(
                             child:
-                                SizedBox(child: CircularProgressIndicator()));
+                                SizedBox(
+                                  height: 300,
+                                  width: w,
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    children: [
+                                      SizedBox(
+                                          height: 30,
+                                          width: 30,
+                                          child:const CircularProgressIndicator()),
+                                    ],
+                                  ),
+                                ));
                       }
                     },
                   ),
